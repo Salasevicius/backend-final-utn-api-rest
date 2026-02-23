@@ -1,0 +1,31 @@
+meta {
+  name: create new article
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://127.0.0.1:50000/api/articles
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTljYWY3Y2ExNzg1NTcyYTFiYmYxODEiLCJ1c2VybmFtZSI6ImFsYW4xIiwiZW1haWwiOiJhbGFuMUByb3NhcmlvLmNvbSIsImlhdCI6MTc3MTg3NjQzNiwiZXhwIjoxNzcxODgwMDM2fQ.6uLB8aWJYBZAX2QqpOtHboxuSOEUmOrelx6Q3EysVsw
+}
+
+body:json {
+  {
+    "title": "FELIPE ALDANA, LOCO DE BELLEZA.",
+    "description": "Felipe Aldana es sin duda uno de los poetas más relevantes de la literatura rosarina. Su enfermedad mental contribuyó a su prematuro declive.de los poetas más relevantes de la literatura rosarina.",
+    "content": "Contenido extenso sobre el impacto cultural de Rosario...",
+    "category": "Microbiografías",
+    "imageUrl": "/felipe-aldana.webp",
+    "link": "/notas/felipe-aldana"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

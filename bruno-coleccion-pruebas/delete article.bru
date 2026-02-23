@@ -1,0 +1,20 @@
+meta {
+  name: delete article
+  type: http
+  seq: 6
+}
+
+delete {
+  url: http://localhost:50000/api/articles/699cb915a1785572a1bbf1a3
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OTljYWY3Y2ExNzg1NTcyYTFiYmYxODEiLCJ1c2VybmFtZSI6ImFsYW4xIiwiZW1haWwiOiJhbGFuMUByb3NhcmlvLmNvbSIsImlhdCI6MTc3MTg3NjQzNiwiZXhwIjoxNzcxODgwMDM2fQ.6uLB8aWJYBZAX2QqpOtHboxuSOEUmOrelx6Q3EysVsw
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
