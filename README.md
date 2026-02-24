@@ -21,7 +21,7 @@ Sigue estos pasos para levantar el proyecto en tu entorno local:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/Salasevicius/backend-final-utn-api-rest.git
    ```
 
 2. **Instalar dependencias:**
@@ -80,4 +80,6 @@ El proyecto sigue una estructura organizada para facilitar la escalabilidad:
 * src/config: Configuración de base de datos y variables de entorno.
 
 ## 📚 Documentación Complementaria
-Siguiendo las sugerencias de la cursada, se ha utilizado DeepWiki para complementar la documentación técnica de los modelos y la arquitectura interna del proyecto. Puedes encontrar la colección de solicitudes de Bruno en la carpeta /bruno dentro de este repositorio para realizar pruebas de los endpoints mencionados.
+Siguiendo las sugerencias de la cursada, se ha utilizado DeepWiki para complementar la documentación técnica de los modelos y la arquitectura interna del proyecto. Puedes encontrar la colección de solicitudes de Bruno en la carpeta bruno-coleccion-pruebas/ dentro de este repositorio para realizar pruebas de los endpoints mencionados.
+
+### Desarrollado por Salasevicius 2026
