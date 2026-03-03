@@ -21,4 +21,4 @@ const ArticleSchema = new Schema(
   { timestamps: true }
 );
 
-export const Article = model("Article", ArticleSchema);
+export const Article = model("Article", ArticleSchema, "articles");
