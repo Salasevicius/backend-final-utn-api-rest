@@ -11,10 +11,20 @@ interface AuthRequest extends Request {
 // 1. OBTENER TODOS LOS ARTÍCULOS (Público)
 const getArticles = async (req: Request, res: Response) => {
   try {
-    const { category } = req.query;
+    const { category, search } = req.query;
     const filter: any = {};
     if (category) {
       filter.category = { $regex: category, $options: "i" };
+    }
+
+    // NUEVO: Filtro de búsqueda global
+    if (search) {
+      const searchRegex = { $regex: search, $options: "i" };
+      filter.$or = [
+        { title: searchRegex },
+        { description: searchRegex },
+        { content: searchRegex } // Opcional: buscar también en el cuerpo del texto
+      ];
     }
 
     const articles = await Article.find(filter).sort({ createdAt: -1 });
