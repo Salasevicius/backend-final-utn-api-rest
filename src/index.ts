@@ -10,6 +10,12 @@ dotenv.config()
 
 const serverHttp = express()
 
+// --- CONFIGURACIÓN DE PRERENDER (PARA SEO DINÁMICO) ---
+// Usamos require para evitar el error de tipos (404 @types)
+const prerender = require('prerender-node').set('prerenderToken', process.env.PRERENDER_TOKEN);
+serverHttp.use(prerender);
+// ------------------------------------------------------
+
 // Extensión del objeto Request para TypeScript
 declare global {
   namespace Express {
@@ -24,7 +30,6 @@ serverHttp.use(cors()) // Habilitación de solicitudes externas
 serverHttp.use(express.json())
 
 // RUTAS PRINCIPALES
-// Quitamos el authMiddleware de aquí para que el Router decida qué es público y qué no
 serverHttp.use("/api/articles", articleRouter)
 serverHttp.use("/auth", authRouter)
 
