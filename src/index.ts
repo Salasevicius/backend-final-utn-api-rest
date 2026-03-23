@@ -10,9 +10,13 @@ dotenv.config()
 
 const serverHttp = express()
 
-// --- CONFIGURACIÓN DE PRERENDER (PARA SEO DINÁMICO) ---
-// Usamos require para evitar el error de tipos (404 @types)
-const prerender = require('prerender-node').set('prerenderToken', process.env.PRERENDER_TOKEN);
+// --- CONFIGURACIÓN DE PRERENDER (CAPA DE SEO DINÁMICO) ---
+// Se coloca al inicio para interceptar bots antes de cualquier otra ruta
+const prerender = require('prerender-node')
+  .set('prerenderToken', process.env.PRERENDER_TOKEN)
+  .set('protocol', 'https')
+  .set('forwardHeaders', true);
+
 serverHttp.use(prerender);
 // ------------------------------------------------------
 
@@ -25,13 +29,18 @@ declare global {
   }
 }
 
-// Middlewares globales requeridos por la consigna
-serverHttp.use(cors()) // Habilitación de solicitudes externas
+// Middlewares globales
+serverHttp.use(cors()) 
 serverHttp.use(express.json())
 
 // RUTAS PRINCIPALES
 serverHttp.use("/api/articles", articleRouter)
 serverHttp.use("/auth", authRouter)
+
+// Ruta de Salud (Opcional, útil para que Render verifique que el servicio está vivo)
+serverHttp.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
 
 // Error 404
 serverHttp.use((req, res) => {
