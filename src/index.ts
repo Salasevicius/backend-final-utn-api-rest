@@ -37,6 +37,15 @@ serverHttp.use(express.json())
 serverHttp.use("/api/articles", articleRouter)
 serverHttp.use("/auth", authRouter)
 
+// --- NUEVA RUTA RAÍZ PARA EVITAR EL 404 EN PRERENDER ---
+serverHttp.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "API Proyecto Cultura Rosario - Operativa",
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Ruta de Salud (Opcional, útil para que Render verifique que el servicio está vivo)
 serverHttp.get("/health", (req, res) => {
   res.status(200).send("OK");
