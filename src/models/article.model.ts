@@ -12,6 +12,7 @@ const ArticleSchema = new Schema(
       enum: ['Destacados', 'Microbiografías', 'Literarios', 'Periodísticos', 'Opinión']
     },
     imageUrl: { type: String, required: true },
+    imageMobileUrl: { type: String }, // Añadimos este campo (opcional)
     link: { type: String },
     userId: {
       type: Schema.Types.ObjectId,
